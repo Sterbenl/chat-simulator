@@ -1,46 +1,63 @@
-# Getting Started with Create React App
+React Chat Application
+Это веб-приложение для обмена сообщениями, созданное с использованием React и TypeScript. Приложение поддерживает несколько пользователей, позволяет им отправлять сообщения и сохранять их в localStorage для синхронизации данных. Интерфейс выполнен в тёмной теме для более приятного использования в условиях низкой освещенности.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Функциональность
+Выбор пользователя: Вход в приложение осуществляется выбором одного из нескольких пользователей.
+Список чатов: Отображает всех пользователей, с которыми можно начать диалог. Список сортируется по времени последнего сообщения.
+Отправка сообщений: Поддерживается отправка текстовых сообщений в реальном времени между выбранными пользователями.
+Отображение времени сообщений: Время отправки каждого сообщения отображается рядом с текстом сообщения.
+Тёмная тема: Интерфейс выполнен в тёмных тонах для комфортного использования.
+Хранение сообщений в localStorage: Сообщения сохраняются локально и синхронизируются между вкладками браузера.
+Счётчик новых сообщений: Для каждого чата отображается количество новых непрочитанных сообщений.
+Структура проекта
+Проект организован в несколько ключевых компонентов:
 
-## Available Scripts
+App.tsx — основной компонент, управляющий состоянием приложения, а также переключением пользователей и отправкой сообщений.
+ChatList.tsx — компонент, отвечающий за отображение списка доступных чатов с пользователями, отсортированных по времени последнего сообщения.
+ChatWindow.tsx — окно для отображения сообщений между активным пользователем и выбранным собеседником, а также поле ввода нового сообщения.
+UserSelection.tsx — компонент для выбора активного пользователя, который будет участвовать в чате.
+Модели: Типы данных для пользователей (User) и сообщений (Message).
+Установка
+Чтобы установить и запустить проект локально, выполните следующие шаги:
 
-In the project directory, you can run:
+Склонируйте репозиторий:
 
-### `npm start`
+Копировать код
+git clone https://github.com/your-username/chat-app.git
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Перейдите в директорию проекта:
+cd chat-app
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Установите необходимые зависимости:
+npm install
 
-### `npm test`
+Запустите проект:
+npm start
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Приложение откроется в браузере по адресу http://localhost:3000.
 
-### `npm run build`
+Как использовать
+Выбор пользователя:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+После запуска приложения появится интерфейс выбора пользователя. Выберите одного из доступных пользователей для входа в чат.
+Список чатов:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+После выбора пользователя откроется список пользователей, с которыми можно начать чат. Список отсортирован по времени последнего сообщения — чаты с последними активными пользователями будут отображаться выше.
+Чат:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Нажмите на любого пользователя, чтобы начать переписку. В открывшемся окне чата вы сможете отправлять текстовые сообщения.
+Время отправки каждого сообщения будет отображено рядом с ним.
+Сохранение и синхронизация:
 
-### `npm run eject`
+Все сообщения сохраняются в localStorage, поэтому даже после обновления страницы они останутся доступными. Сообщения также синхронизируются между открытыми вкладками браузера.
+Технологии
+В проекте используются следующие технологии:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+React: Библиотека для построения пользовательского интерфейса.
+TypeScript: Типизация для повышения надёжности и удобства разработки.
+CSS: Приложение стилизовано с использованием каскадных таблиц стилей (CSS), включая поддержку тёмной темы.
+localStorage: Используется для хранения сообщений и синхронизации данных между вкладками браузера.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Дополнительная информация:
+Форматирование времени сообщений: Для удобства пользователя время отображается в формате ЧЧ:ММ.
+Поддержка нескольких вкладок: Приложение поддерживает синхронизацию сообщений между вкладками благодаря использованию событий storage в браузере.
